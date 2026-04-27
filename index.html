@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Istriku ❤️</title>
+
+  <!-- Hubungkan CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <h1>Hai sayang... 💖</h1>
+  <button id="startBtn">Klik untuk mulai</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <h2>Selamat Ulang Tahun ❤️</h2>
+  <h3>Istriku Tercinta 💕</h3>
+
+  <p>
+    Di hari spesial ini, aku cuma ingin bilang...
+    kamu adalah alasan aku bahagia setiap hari 💖
+  </p>
+
+  <p>
+    Terima kasih sudah selalu ada untukku.
+    Aku akan selalu mencintaimu, hari ini dan selamanya ❤️
+  </p>
+
+  <button class="btn" onclick="showLove()">Klik kejutan 💌</button>
+</div>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const intro = document.getElementById("intro");
+  const main = document.getElementById("main");
+  const btn = document.getElementById("startBtn");
+  const music = document.getElementById("music");
+
+  btn.onclick = () => {
+    intro.style.display = "none";
+    main.style.display = "flex";
+    music.play();
+    startHearts();
+  };
+
+  function showLove() {
+    alert("Aku sayang kamu selamanya ❤️");
+  }
+
+  function startHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  }
+</script>
+
+</body>
+</html>
